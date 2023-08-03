@@ -1,0 +1,150 @@
+body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
+
+#navbar {
+  background-color: black;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#title {
+  display: flex;
+  align-items: center;
+}
+
+#imageContainer {
+  margin: 10px;
+}
+#imageContainer img {
+  height: 37px;
+}
+
+#title h1 {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  left: 60px;
+  top: 0;
+  color: white;
+  font-size: 20px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin-right: 10px;
+}
+#title h2 {
+  position: absolute;
+  left: 60px;
+  top: 15px;
+  align-items: center;
+  color: lightgray;
+  font-size: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 20;
+}
+.navButtonsContainer {
+  display: flex;
+}
+.navButton {
+  padding: 10px;
+  margin: 2px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+/* To stick the last three buttons to the right end */
+.navButtonsContainer {
+  position: absolute;
+  right: 10px;
+}
+
+#editorsSection {
+  border: 2px solid rgb(102, 107, 122);
+  background-color: rgb(29, 30, 34);
+  height: 45vh;
+  display: flex;
+}
+
+.codeEditor {
+  margin: 10px;
+  width: 32%;
+  border: solid 1px rgb(102, 107, 122);
+  background-color: rgb(49, 50, 55);
+  display: flex;
+  flex-direction: column;
+}
+.codeEditorNavbar {
+  background-color: rgb(29, 30, 34);
+  height: 55px;
+  display: flex;
+  align-items: center;
+}
+.langLogo img {
+  height: 30px;
+  margin: 10px;
+}
+.langName {
+  color: white;
+  margin-left: 10px;
+}
+
+.codeArea {
+  flex: 1; /* This will make the textarea cover all available space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px; /* Include padding in the total width/height calculation */
+}
+.codeArea textarea {
+  /* resize: none; */
+  background: rgb(30, 30, 30);
+  /* font-family: "Courier New", Courier, monospace; */
+  color: white;
+  width: 97%;
+  height: 97%;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.codeEditorButtons {
+  margin-left: auto;
+}
+.codeEditorButtons button {
+  padding: 5px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+#resultSection {
+  margin: 10px;
+  background-color: white;
+}
+
+#resultContainer {
+  border: solid 1px rgb(102, 107, 122);
+
+  margin-top: 10px;
+  /* padding-bottom: 110px; */
+  height: 37vh;
+}
+
+#footer {
+  position: fixed;
+  width: 100%;
+  background-color: rgb(29, 30, 34);
+  bottom: 0;
+  padding: 5px;
+}
+#footer button {
+  background-color: rgb(90, 95, 115);
+  color: white;
+  margin-left: 2px;
+}
+#footer span {
+  /* //align in center */
+  margin-left: 70px;
+  color: white;
+  font-family: monospace;
+}
