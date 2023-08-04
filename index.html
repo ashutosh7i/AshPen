@@ -41,10 +41,12 @@
         <div class="codeArea">
           <textarea
             name=""
-            id=""
+            id="htmlCode"
             cols="1"
             rows="1"
             placeholder="code HTML Here"
+            oninput="update(0)"
+            onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}if(event.keyCode==8){update(1);}"
           ></textarea>
         </div>
       </div>
@@ -59,10 +61,12 @@
         <div class="codeArea">
           <textarea
             name=""
-            id=""
+            id="cssCode"
             cols="1"
             rows="1"
             placeholder="code CSS Here"
+            oninput="update(0)"
+            onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}if(event.keyCode==8){update(1);}"
           ></textarea>
         </div>
       </div>
@@ -77,10 +81,12 @@
         <div class="codeArea">
           <textarea
             name=""
-            id=""
+            id="jsCode"
             cols="1"
             rows="1"
             placeholder="code Javascript Here"
+            oninput="update(0)"
+            onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}if(event.keyCode==8){update(1);}"
           ></textarea>
         </div>
       </div>
@@ -90,7 +96,8 @@
     <!-- Result Section -->
     <div id="resultSection">
       <div id="resultContainer">
-        <div id="root">Results will be shown here...</div>
+        <!-- <div id="root">Results will be shown here...</div> -->
+        <iframe id="viewer"></iframe>
       </div>
     </div>
     <!-- Footer Section -->
@@ -102,7 +109,36 @@
     </div>
   </body>
 
-  <script>
+ <script>
+    var j = 0;
+    // Function for live Rendering
+    function update(i) {
+      if (i == 0) {
+        let htmlCode = document.getElementById("htmlCode").value;
+        let cssCode = document.getElementById("cssCode").value;
+        let javascriptCode = document.getElementById("jsCode").value;
+        let text =
+          htmlCode +
+          "<style>" +
+          cssCode +
+          "</style>" +
+          "<scri" +
+          "pt>" +
+          javascriptCode +
+          "</scri" +
+          "pt>";
+        let iframe = document.getElementById("viewer").contentWindow.document;
+        iframe.open();
+        iframe.write(text);
+        iframe.close();
+      } else if (i == 1) {
+        let htmlCode = document.getElementById("htmlCode").value;
+        let html = htmlCode.slice(0, htmlCode.length);
+        document.getElementById("htmlCode").value = html;
+        j = 1;
+      }
+    }
+
     const resizer = document.getElementById("resizer");
     const editorsSection = document.getElementById("editorsSection");
     const resultSection = document.getElementById("resultSection");
@@ -139,4 +175,5 @@
       document.removeEventListener("mouseup", stopResize);
     }
   </script>
+</body>
 </html>

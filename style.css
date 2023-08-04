@@ -91,11 +91,11 @@ body {
 }
 
 .codeArea {
-  flex: 1; /* This will make the textarea cover all available space */
+  flex: 1; 
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px; /* Include padding in the total width/height calculation */
+  padding: 5px;
 }
 .codeArea textarea {
   /* resize: none; */
@@ -118,18 +118,19 @@ body {
 }
 
 #resultSection {
-  margin: 10px;
-  background-color: white;
 }
 
 #resultContainer {
-  border: solid 1px rgb(102, 107, 122);
-
-  margin-top: 10px;
-  /* padding-bottom: 110px; */
-  height: 37vh;
+  background: white;
+  width: 100%;
+  height: 100%;
+  /* margin: 3px; */
 }
 
+#viewer {
+  width: 100%; 
+  height: 100vh; 
+}
 #footer {
   position: fixed;
   width: 100%;
@@ -153,5 +154,5 @@ body {
   width: 100%;
   height: 8px;
   background-color: rgb(102, 107, 122);
-  cursor: row-resize; /* Cursor style for resizing */
+  cursor: row-resize; 
 }
