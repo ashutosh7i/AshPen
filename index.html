@@ -92,12 +92,12 @@
       </div>
     </div>
     <!-- Resizer button here -->
-    <div id="resizer">↕️</div>
+    <div id="resizer"><div>...</div></div>
     <!-- Result Section -->
     <div id="resultSection">
       <div id="resultContainer">
-        <!-- <div id="root">Results will be shown here...</div> -->
-        <iframe id="viewer"></iframe>
+        <!-- Results will be shown here -->
+        <iframe id="viewer" ></iframe>
       </div>
     </div>
     <!-- Footer Section -->
@@ -109,71 +109,7 @@
     </div>
   </body>
 
- <script>
-    var j = 0;
-    // Function for live Rendering
-    function update(i) {
-      if (i == 0) {
-        let htmlCode = document.getElementById("htmlCode").value;
-        let cssCode = document.getElementById("cssCode").value;
-        let javascriptCode = document.getElementById("jsCode").value;
-        let text =
-          htmlCode +
-          "<style>" +
-          cssCode +
-          "</style>" +
-          "<scri" +
-          "pt>" +
-          javascriptCode +
-          "</scri" +
-          "pt>";
-        let iframe = document.getElementById("viewer").contentWindow.document;
-        iframe.open();
-        iframe.write(text);
-        iframe.close();
-      } else if (i == 1) {
-        let htmlCode = document.getElementById("htmlCode").value;
-        let html = htmlCode.slice(0, htmlCode.length);
-        document.getElementById("htmlCode").value = html;
-        j = 1;
-      }
-    }
-
-    const resizer = document.getElementById("resizer");
-    const editorsSection = document.getElementById("editorsSection");
-    const resultSection = document.getElementById("resultSection");
-
-    let startY, startHeightEditors, startHeightResult;
-
-    resizer.addEventListener("mousedown", (e) => {
-      startY = e.clientY;
-      startHeightEditors = parseInt(
-        getComputedStyle(editorsSection).getPropertyValue("height")
-      );
-      startHeightResult = parseInt(
-        getComputedStyle(resultSection).getPropertyValue("height")
-      );
-
-      document.addEventListener("mousemove", handleResize);
-      document.addEventListener("mouseup", stopResize);
-    });
-
-    function handleResize(e) {
-      const delta = e.clientY - startY;
-      const newHeightEditors = startHeightEditors + delta;
-      const newHeightResult = startHeightResult - delta;
-
-      // Limit the resizing to prevent going below 50% of editorsSection
-      if (newHeightEditors >= editorsSection.clientHeight * 0.5) {
-        editorsSection.style.height = newHeightEditors + "px";
-        resultSection.style.height = newHeightResult + "px";
-      }
-    }
-
-    function stopResize() {
-      document.removeEventListener("mousemove", handleResize);
-      document.removeEventListener("mouseup", stopResize);
-    }
-  </script>
+ <script defer src="./handleResize.js">//this code handles editor/result resize functionality </script>
+ <script defer src="./renderEngine.js">//this code renders the html css and js in the iframe </script>
 </body>
 </html>
